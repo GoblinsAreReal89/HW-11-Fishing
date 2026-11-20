@@ -2,12 +2,14 @@ let troutIMAGE;
 let RandomText;
 GlupShittoArray = Array;
 troutWeightArray = Array;
+troutWeightValue = 0.3
 
 Sizing = 0.3
 Discoloration = 0.8
 RandomFavFilm = "Chinatown"
 troutMeasureWeight = 0 //This is the trout's weight in pounds
-
+troutAgeDescriptior = "plgo"
+troutAgeNumber = 0
 
 troutWeightArray = ["Microscopic","Shrimpy", "Small","Itty-Bitty","Run-of-the-mill", "Average","Standard",
     "Large", "Huuuuge","Massive","Ginormous","Catch-of-the-era"];
@@ -25,6 +27,8 @@ troutFavFilmArray = ["La-la-land","Battleship-Potemkin","Interstellar","Spirited
 async function setup() {
     rollDice();
     troutIMAGE = await loadImage('/assets/TROUT-PIC.png');
+    backgroundIMAGE = await loadImage('/assets/fruitgerAero.jpg');
+
 
     //Just getting some basics out of the way in setup
     createCanvas(800, 800);
@@ -35,41 +39,50 @@ async function setup() {
 function draw() {
     fill(100,220,250); //Background Color
     square(0,0,800); //Background fill
+    tint(255, 210, 230, 255) //Change  color
+    image(backgroundIMAGE,400,400,1920, 1080)
 
-    textSize(80); //Text size
+    textSize(40); //Text size
     fill(250,190,140); //Text color
     strokeWeight(4) //Text outline
     stroke(10)
 
-    text(RandomTextHealth,400,300);
-    text(RandomTextWeight, 400, 400);
-    text(troutMeasureWeight, 100, 400);
-    text(RandomFavFilm,400,600)
-    text("Trout", 400,500);
+    text("Fish health: "+RandomTextHealth,400,125);
+    text(troutMeasureWeight+" pounds, that's "+RandomTextWeight, 400, 200);
+    text( 150, 200);
+    text("This trout is "+troutAgeNumber+ " years old,", 400, 275);
+    text("That age could be called "+troutAgeDescriptior+".", 400, 325);
+    fill(255,255,255);
+    text("'My favorite film is "+RandomFavFilm+ ".'",100,500,400);
     
+
     stroke(0,0) //Reset stroke
     tint(255 * Discoloration, 210 * Discoloration, 30, 255) //Change trout color
     image(troutIMAGE, 400, 650,600 * Sizing,200 * Sizing); //Place trout image
-
 }
 
 function mousePressed(){
     rollDice()
+    print(troutWeightValue.length);
 }
  
 
 function rollDice(){
     //This randomizes the printed text in the draw function each time the mouse is pressed
-    troutHealthValue = round((random(0,13))); //Randomizing Health term
-        Discoloration = troutHealthValue/12 + .2; //Adjusting trout color based on term
+    troutHealthValue = round((random(0,troutHealthArray.length -1))); //Randomizing Health term
+        Discoloration = (troutHealthValue/(troutHealthArray.length -1)) + .2; //Adjusting trout color based on term
         RandomTextHealth = troutHealthArray[(troutHealthValue)]; //Moving the new health term to the text variable
 
 
-    troutWeightValue = round((random(0,10))); // Randomizing weight term 
-        Sizing = troutWeightValue/11 + .22; // Changing trout size based on weight term
+    troutWeightValue = round((random(0,troutWeightArray.length -1))); // Randomizing weight term 
+        Sizing = (troutWeightValue/(troutWeightArray.length -1)) + .22; // Changing trout size based on weight term
         RandomTextWeight = troutWeightArray[(troutWeightValue)]; // Moving the new weight term to the text variable 
-        troutMeasureWeight = 0.75 * (round(0.4 + (15 * Sizing)));  // Giving a number in pounds based on the sizing
+        troutMeasureWeight = round((2,15 * Sizing),2);  // Giving a number in pounds based on the sizing
 
+    
+        troutAgeNumber = (round(random(0,troutAgeArray.length - 1)));
+            troutAgeDescriptior = troutAgeArray[troutAgeNumber];
+        troutAgeNumber = round(troutAgeNumber * 2.15,3);
 
 
         RandomFavFilm = random(troutFavFilmArray); //Randomizing the favorite film of the trout

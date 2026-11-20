@@ -6,10 +6,22 @@
 
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #767acb;
+    background: #c6ddae;
     border: 60px solid transparent;
 }
 
+
+#title {
+}
+
+#sketch-holder {
+order: 2;
+}
+
+#subtext {
+order: 3;
+}
