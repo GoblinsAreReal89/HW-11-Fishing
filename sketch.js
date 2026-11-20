@@ -20,7 +20,8 @@ troutHealthValue = 10
 troutAgeArray = ["Larvae", "Fry", "Ongrower", "Rebel-Teen", "Sea-Grown", "Adult", "Arthritic", "Elder","Fossil"]
 troutFavFilmArray = ["La-la-land","Battleship-Potemkin","Interstellar","Spirited-Away","Citizen-Kane","Psycho","Mulholland-drive","Sinners",
     "Heat","Casablanca","Gone-with-the-wind","Lonesome-dove","Once-upon-a-time-in-the-west","Pulp-fiction","The-godfather","Lawrence-of-Arabia",
-    "The-shining","2001-A-space-odyssey","12-Angry-men","Bladerunner","The-Wizard-of-Oz",
+    "The-shining","2001-A-space-odyssey","12-Angry-men","Bladerunner","The-Wizard-of-Oz", "Drive", "I-saw-the-tv-glow", "Asmodeus", "12-Angry-Men", "Nosferatu",
+    "The-menu","Godzilla-minus-0",
 ]
 
 
